@@ -41,7 +41,6 @@ const DonutChart = () => {
 
                 // Agora a const chartData recebe os valores, pois é alterado o estado dela
                 setChartData({ labels: myLabels, series: mySeries });
-                console.log(chartData);
             });
     }, []);
 
