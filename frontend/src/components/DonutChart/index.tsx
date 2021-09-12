@@ -17,8 +17,8 @@ const DonutChart = () => {
     //     series: []
     // };
 
-    // Forma Errada - Pois a requisição é feita mais de uma vez.
-    // Além de não popular o gráfico, pois é uma funcão assincrona.
+    // Forma Errada - Pois a requisição é feita mais de uma vez. UseEffect corrigi esse problema.
+    // Além de não popular o gráfico(chartData não recebe os valores), pois é uma funcão assincrona. setChartData resolve esse problema.
     // axios.get(`${BASE_URL}/sales/amount-by-seller`)
     //     .then(response => {
     //         const data = response.data as SaleSum[];
@@ -39,6 +39,7 @@ const DonutChart = () => {
                 const myLabels = data.map(x => x.sellerName);
                 const mySeries = data.map(x => x.sum);
 
+                // Agora a const chartData recebe os valores, pois é alterado o estado dela
                 setChartData({ labels: myLabels, series: mySeries });
                 console.log(chartData);
             });
